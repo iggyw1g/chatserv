@@ -12,8 +12,8 @@ import java.io.*;
 import java.net.*;
 
 public class ChatClient {
-    private static final String SERVER_ADDRESS = "10.152.154.166"; //local host is IP address or where server is
-    private static final int SERVER_PORT = 12345; //port is basically where the info comes in from network
+    private static final String SERVER_ADDRESS = "localhost"; //local host is IP address (make sure to update when creating the server)
+    private static final int SERVER_PORT = 12345; // info comes in from network
 
     public static void main(String[] args) {
         try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);//creating new server using port + IP address
@@ -29,7 +29,7 @@ public class ChatClient {
                         System.out.println(serverMessage);//reading input and printing from server
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();//if its null then this diagnoses exception and then prints
+                    e.printStackTrace();//
                 }
             }).start(); 
 
