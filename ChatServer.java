@@ -13,7 +13,7 @@ import java.net.*;
 import java.util.*;
 
 public class ChatServer {
-    private static final int PORT = 12345; //PORT is where it connects to network and listens
+    private static final int PORT = 12345; // connects to network and listens
     private static Map<String, ClientHandler> clientHandlers = Collections.synchronizedMap(new HashMap<>());//creating array list for the clients
 
     public static void main(String[] args) {
@@ -34,7 +34,7 @@ public class ChatServer {
         private String username;
 
         public ClientHandler(Socket socket) {
-            this.socket = socket; //socket allows for communcation over a network
+            this.socket = socket; 
         }
 
         @Override
@@ -43,7 +43,6 @@ public class ChatServer {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));//reading bytes to the socket
                 out = new PrintWriter(socket.getOutputStream(), true); //writing bytes to the socket
 
-                // User login MIGHT GET RID OF THIS AND FIGURE OUT HOW DO TO IDENTIFY USER ID AND IMPLEMENT THAT
                 out.println("Enter your username:");
                 username = in.readLine();
                 if (username == null || username.trim().isEmpty()) {
@@ -65,7 +64,7 @@ public class ChatServer {
 
                 String message;
                 while ((message = in.readLine()) != null) {
-                    if (message.startsWith("@")) { //private messaging basically so it just sends it to the targetUser
+                    if (message.startsWith("@")) { //private messaging 
                         int spaceIndex = message.indexOf(' ');
                         if (spaceIndex != -1) {
                             String targetUser = message.substring(1, spaceIndex);
@@ -96,7 +95,7 @@ public class ChatServer {
         private void sendMessageToUser(String targetUser, String message) {
             ClientHandler targetHandler = clientHandlers.get(targetUser);
             if (targetHandler != null) {
-                targetHandler.out.println("[Private] " + username + ": " + message);//sending private messaqe essentially
+                targetHandler.out.println("[Private] " + username + ": " + message);//sending private messaqe 
             } else {
                 out.println("User " + targetUser + " not found.");
             }
