@@ -6,7 +6,7 @@ package com.mycompany.chatserver;
 
 /**
  *
- * @author alisa
+ * @author alisa 
  */
 public class runningMain {
    //final static int SERVER_PORT = 12345;
