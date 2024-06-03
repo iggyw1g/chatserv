@@ -12,7 +12,7 @@ import java.io.*;
 import java.net.*;
 
 public class ChatClient {
-    private static final String SERVER_ADDRESS = "localhost"; //local host is IP address (make sure to update when creating the server)
+    private static final String SERVER_ADDRESS = "localhost"; //local host is IP address (set to current IP)
     private static final int SERVER_PORT = 12345; // info comes in from network
 
     public static void main(String[] args) {
